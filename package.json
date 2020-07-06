@@ -1,0 +1,75 @@
+{
+    "name": "show-simplex",
+    "version": "1.0.0",
+    "description": "A CLI that displays an ASCII representation of simplex noise in your terminal",
+    "homepage": "https://github.com/neefrehman/show-simplex-cli",
+    "bugs": {
+        "url": "https://github.com/neefrehman/show-simplex-cli/issues"
+    },
+    "author": "Neef Rehman",
+    "license": "ISC",
+    "files": [
+        "lib/**/*"
+    ],
+    "main": "lib/index.js",
+    "bin": {
+        "show-simplex": "./lib/index.js"
+    },
+    "types": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/neefrehman/show-simplex-cli.git"
+    },
+    "keywords": [
+        "generative coding",
+        "creative coding"
+    ],
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "nice-color-palettes": "^3.0.0",
+        "simplex-noise": "^2.4.0"
+    },
+    "devDependencies": {
+        "@types/node": "^14.0.14",
+        "@typescript-eslint/eslint-plugin": "^2.31.0",
+        "@typescript-eslint/parser": "^2.31.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.2",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.8.3"
+    },
+    "scripts": {
+        "format": "prettier \"src/**/*.{js,ts,tsx}\"",
+        "format:fix": "prettier \"src/**/*.{js,ts,tsx}\" --write",
+        "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
+        "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --fix",
+        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+        "create": "npm run build && npm run test",
+        "build": "tsc -p .",
+        "test": "sudo npm i -g && pizza",
+        "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
+    },
+    "lint-staged": {
+        "*.(js|ts|tsx)": [
+            "eslint --fix",
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    }
+}
