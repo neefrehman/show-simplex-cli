@@ -1,6 +1,6 @@
 {
     "name": "show-simplex",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "A CLI that displays an ASCII representation of simplex noise in your terminal",
     "homepage": "https://github.com/neefrehman/show-simplex-cli",
     "bugs": {
