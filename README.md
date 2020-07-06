@@ -1,6 +1,6 @@
 ![terminal screenshot](assets/screenshot.png)
 
-# show-simplex-cli
+# show-simplex
 
 A CLI that displays an animated ASCII [simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) field in your terminal. You may have to squint a bit.
 
