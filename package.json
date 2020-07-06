@@ -22,7 +22,9 @@
     },
     "keywords": [
         "generative coding",
-        "creative coding"
+        "creative coding",
+        "cli",
+        "node"
     ],
     "dependencies": {
         "chalk": "^4.1.0",
