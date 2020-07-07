@@ -91,7 +91,7 @@ const startDrawLoop = (pointPositions: [number, number][]): void => {
 
             noiseZ += noiseZVel;
         });
-    }, 60);
+    }, 80);
 };
 
 const init = (): void => {
