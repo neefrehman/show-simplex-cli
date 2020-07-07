@@ -28,6 +28,7 @@
     ],
     "dependencies": {
         "chalk": "^4.1.0",
+        "commander": "^5.1.0",
         "nice-color-palettes": "^3.0.0",
         "simplex-noise": "^2.4.0"
     },
