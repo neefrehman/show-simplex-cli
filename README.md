@@ -18,7 +18,7 @@ npx show-simplex-cli show-simplex
 
 `show-simplex` also has two alternative visualisations of the simplex noise field: `block` and `angle`. To see them, use the appropriate command flags below.
 
-A `number` option is also available, to display the numeric value of each point in the noise field. This can be used alongside `block`, but will overwrite the character shown for other visualasations.
+A `number` option is also available, to display the numeric value of the noise field at each point. This can be used alongside `block`, but will overwrite the character shown for other visualasations.
 
 ```shell
 show-simplex -b     # or --block
