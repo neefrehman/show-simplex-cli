@@ -38,7 +38,7 @@ show-simplex -a     # or --angle
 A `number` option is also available under the `-n` flag, to display the numeric value of the noise field at each point. This can be used alongside `block`, but will overwrite the character shown for other visualisations.
 
 ```shell
-show-simplex -n     # or --number, can be used alongside -b, otherwise will overwrite the characters
+show-simplex -n     # or --number, can be used alongside -b
 ```
 
 <img src="assets/screenshot_number.png" alt="Number screenshot" width="100%">
