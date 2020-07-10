@@ -97,19 +97,23 @@ const startDrawLoop = (pointPositions: [number, number][]): void => {
         return [color, char];
     };
 
+    let drawGrid: (z: number) => [Color, Char] | [Color];
+
+    if (program.block) {
+        drawGrid = drawBlock;
+    } else if (program.angle) {
+        drawGrid = drawAngle;
+    } else {
+        drawGrid = drawAscii;
+    }
+
     drawGridTimeout = setInterval(() => {
         clearScrollback();
         pointPositions.forEach(position => {
             const [y, x] = position;
             const z = noise3D(x, y, noiseZ);
 
-            if (program.block) {
-                [color] = drawBlock(z);
-            } else if (program.angle) {
-                [color, char] = drawAngle(z);
-            } else {
-                [color, char] = drawAscii(z);
-            }
+            drawGrid(z);
 
             if (program.number) char = zMult;
             process.stdout.write(chalkWrite(color)(char));
