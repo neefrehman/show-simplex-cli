@@ -6,7 +6,7 @@ A CLI that displays an animated ASCII [simplex noise](https://en.wikipedia.org/w
 
 ## npx execution
 
-Run the below command to execute `show-simplex-cli` without installing the modula globally
+Run the below command to execute `show-simplex-cli` without installing the module globally
 
 ```shell
 npx show-simplex-cli show-simplex
