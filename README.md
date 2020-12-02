@@ -4,6 +4,8 @@
 
 A CLI that displays an animated ASCII [simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) field in your terminal. You may have to squint a bit or reduce your font-size to see the patterns emerge, but they're there!
 
+>❇️ Want to run this CLI with a _much_ faster framerate? Well [I've re-written it in Rust](https://github.com/neefrehman/show-simplex-rs), so you can!
+
 ## npx execution
 
 Run the below command to execute `show-simplex-cli` without installing the module globally
