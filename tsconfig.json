@@ -2,14 +2,15 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "lib": ["es6", "es2015", "dom"],
+        "lib": ["es6", "es2015", "dom", "es2019.array"],
         "declaration": true,
         "outDir": "lib",
         "rootDir": "src",
         "strict": true,
         "types": ["node"],
         "esModuleInterop": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "skipLibCheck": true
     },
     "include": ["src"],
     "exclude": ["node_modules"]

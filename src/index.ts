@@ -3,7 +3,10 @@
 import { program } from "commander";
 import palettes from "nice-color-palettes";
 import chalk, { Chalk } from "chalk";
-import { noise3D, pickRandom, shuffle, mapRange } from "./utils";
+import makeMatrix from "make-matrix";
+
+import { noise3D, pickRandom, shuffle, mapRange } from "./mathUtils";
+import { clearScrollback } from "./cliUtils";
 
 program
     .version("1.1.0")
@@ -14,24 +17,11 @@ program
         "-n, --number",
         "shows the numeric value of the noise field at each point"
     )
+    .option(
+        "-t, --timeout <milliseconds>",
+        "adds a timeout (in millisecnods) to the noise field generation"
+    )
     .parse(process.argv);
-
-const clearScrollback = (): boolean =>
-    process.stdout.write("\u001b[H\u001b[2J\u001b[3J");
-
-const createGrid = (): [number, number][] => {
-    const pointPositions: [number, number][] = [];
-    const columns = process.stdout.columns;
-    const rows = process.stdout.rows;
-
-    for (let x = 0; x < rows; x++) {
-        for (let y = 0; y < columns; y++) {
-            pointPositions.push([x, y]);
-        }
-    }
-
-    return pointPositions;
-};
 
 let drawGridTimeout: NodeJS.Timeout;
 const startDrawLoop = (pointPositions: [number, number][]): void => {
@@ -123,9 +113,24 @@ const startDrawLoop = (pointPositions: [number, number][]): void => {
     }, 80);
 };
 
+const createGrid = (): [number, number][] => {
+    const columns = process.stdout.columns ?? 0;
+    const rows = process.stdout.rows ?? 0;
+    const pointPositions = makeMatrix([rows, columns], pos => pos).flat(1);
+
+    return pointPositions as [number, number][];
+};
+
 const init = (): void => {
     const grid = createGrid();
     startDrawLoop(grid);
+
+    if (program.timeout !== undefined) {
+        setTimeout(() => {
+            clearInterval(drawGridTimeout);
+            clearScrollback();
+        }, program.timeout);
+    }
 };
 
 init();
