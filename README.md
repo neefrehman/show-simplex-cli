@@ -60,7 +60,7 @@ show-simplex -n     # or --number, can be used alongside -b
 
 ## Timeout
 
-To stop the visualisation after a set time, set a millisecons value with the timeout flag. This is useful if you
+To stop the visualisation after a set time, set a milliseconds value with the timeout flag. This is useful if you
 want to use this as a small visualisation in another cli, for example during loading or after a succesful run.
 
 ```shell
